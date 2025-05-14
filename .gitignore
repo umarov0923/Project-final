@@ -1,0 +1,82 @@
+### Django ###
+# Локальные настройки и переменные окружения
+.env
+.env.local
+.env.prod
+local_settings.py
+settings/local.py
+
+# Базы данных
+*.sqlite3
+*.db
+
+# Статические файлы и медиа
+/staticfiles/
+/media/
+
+# Логи и кэш
+*.log
+*.pot
+*.pyc
+__pycache__/
+.python-version
+
+# Миграции (если не храните их в репозитории)
+# migrations/
+
+# Виртуальное окружение
+.venv/
+venv/
+env/
+ENV/
+
+### Vue ###
+# Зависимости
+/node_modules/
+
+# Сборка
+/dist/
+/build/
+/.env.local
+
+# Локальные файлы разработки
+.npm
+.cache/
+.tmp/
+*.tmp
+*.bak
+
+# Логи
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### Editors & IDEs ###
+.idea/
+.vscode/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.code-workspace
+
+### OS ###
+.DS_Store
+Thumbs.db
+desktop.ini
+
+### Общие исключения ###
+# Бинарные файлы
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Резервные копии
+*.bak
+*.backup
+
+# Тестовые данные
+/test-results/
+/coverage/
