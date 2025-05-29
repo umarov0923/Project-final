@@ -14,6 +14,7 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
     def validate(self, data):
         data['email'] = data['email'].lower()  # Приводим email к нижнему регистру
+        data['username'] = data['username'].lower()
         if data['password'] != data['confirm_password']:
             raise serializers.ValidationError({"password": "Пароли не совпадают!"})
         return data
@@ -25,12 +26,14 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
 
 class UserLoginSerializer(serializers.Serializer):
     """ Сериализатор для входа в систему """
-    email = serializers.EmailField()
+    login = serializers.CharField()
     password = serializers.CharField(write_only=True)
 
     def validate(self, data):
-        email = data['email'].lower()  # Приводим email к нижнему регистру
-        user = User.objects.filter(email=email).first()
+        login = data['login'].lower()  # Приводим email к нижнему регистру
+        user = User.objects.filter(email=login).first()
+        if not user:
+            user = User.objects.filter(username=login).first()
 
         if not user or not user.check_password(data['password']):
             raise serializers.ValidationError("Неверные учетные данные")

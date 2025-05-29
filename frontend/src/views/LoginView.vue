@@ -4,7 +4,7 @@ import api from '../api/index';
 import { useAuthStore } from '../stores/auth';
 import { useRouter } from 'vue-router';
 
-const form = ref({ email: '', password: '' });
+const form = ref({ login: '', password: '' });
 const error = ref('');
 const loading = ref(false); // Флаг загрузки
 const authStore = useAuthStore();
@@ -39,9 +39,9 @@ const clearError = () => {
       
       <form @submit.prevent="login" class="auth-form">
         <input 
-          v-model="form.email" 
-          type="email"
-          placeholder="Электронная почта"
+          v-model="form.login" 
+          type="text"
+          placeholder="Email или username"
           class="styled-input"
           @input="clearError"
         >
